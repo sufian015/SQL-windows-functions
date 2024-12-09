@@ -10,7 +10,8 @@ SELECT
     new_id, cata,  
     SUM(new_id) OVER (PARTITION BY cata ORDER BY new_id) AS total,  
     AVG(new_id) OVER (PARTITION BY cata ORDER BY new_id) AS average  
-FROM testdata;  
+FROM testdata;
+
 2. Range Queries
 Analyze data over a specific range of rows using ROWS BETWEEN.
 
@@ -18,7 +19,8 @@ Analyze data over a specific range of rows using ROWS BETWEEN.
 SELECT  
     new_id, cata,  
     SUM(new_id) OVER (PARTITION BY cata ORDER BY new_id ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS total  
-FROM testdata;  
+FROM testdata;
+
 3. Ranking Functions
 Assign ranks or numbers to rows with ROW_NUMBER, RANK, and DENSE_RANK.
 
@@ -27,7 +29,8 @@ SELECT
     new_id,  
     ROW_NUMBER() OVER (ORDER BY new_id) AS row_number,  
     RANK() OVER (ORDER BY new_id) AS rank  
-FROM testdata;  
+FROM testdata;
+
 4. Value-Based Functions
 Access specific row values using FIRST_VALUE, LAST_VALUE, LEAD, and LAG.
 
