@@ -14,8 +14,7 @@ FROM testdata;
 2. Range Queries
 Analyze data over a specific range of rows using ROWS BETWEEN.
 
-sql
-Copy code
+
 SELECT  
     new_id, cata,  
     SUM(new_id) OVER (PARTITION BY cata ORDER BY new_id ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS total  
@@ -23,8 +22,7 @@ FROM testdata;
 3. Ranking Functions
 Assign ranks or numbers to rows with ROW_NUMBER, RANK, and DENSE_RANK.
 
-sql
-Copy code
+
 SELECT  
     new_id,  
     ROW_NUMBER() OVER (ORDER BY new_id) AS row_number,  
@@ -33,8 +31,7 @@ FROM testdata;
 4. Value-Based Functions
 Access specific row values using FIRST_VALUE, LAST_VALUE, LEAD, and LAG.
 
-sql
-Copy code
+
 SELECT  
     new_id,  
     FIRST_VALUE(new_id) OVER (ORDER BY new_id) AS first_value,  
